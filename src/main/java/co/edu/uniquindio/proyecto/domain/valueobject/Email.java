@@ -11,10 +11,7 @@ public record Email(String valor) {
         if (!valor.contains("@")) {
             throw new ExcepcionDeReglaDeDominio("El email no tiene el formato correcto");
         }
-        if (!valor.contains("uniquindio.edu.co")){
-            throw new ExcepcionDeReglaDeDominio("El email no pertenece a la institucion");
-        }
-        if (!valor.contains("uqvirtual.edu.co")){
+        if (!valor.endsWith("uniquindio.edu.co") && !valor.endsWith("uqvirtual.edu.co")){
             throw new ExcepcionDeReglaDeDominio("El email no pertenece a la institucion");
         }
     }
