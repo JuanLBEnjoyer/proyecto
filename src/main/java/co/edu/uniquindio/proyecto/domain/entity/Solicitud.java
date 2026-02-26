@@ -13,15 +13,11 @@ public class Solicitud {
     private PrioridadDeSolicitud prioridad;
     private String idResponsable;
 
-    public Solicitud(CodigoSolicitud codigo, String descripcion, String idSolicitante, TipoDeSolicitud tipo,
-            PrioridadDeSolicitud prioridad, String idResponsable) {
+    public Solicitud(CodigoSolicitud codigo, String descripcion, String idSolicitante) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.idSolicitante = idSolicitante;
-        this.tipo = tipo;
         this.estado = EstadoDeSolicitud.REGISTRADA;
-        this.prioridad = prioridad;
-        this.idResponsable = idResponsable;
     }
 
     public void clasificarSolicitud(TipoDeSolicitud tipo, PrioridadDeSolicitud prioridad) {
