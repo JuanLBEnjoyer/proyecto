@@ -40,13 +40,13 @@ public class EmailTest {
 
     @Test
     void debeCrearEmailInstitcional() {
-        String emailInstitcional = "usuario@uniquindio.edu.co";
+        Email emailInstitcional = new Email("usuario@uniquindio.edu.co");
         assertNotNull(emailInstitcional);
     }
 
     @Test
     void debeCrearEmailInstitcional2() {
-        String emailInstitcional = "usuario@uqvirtual.edu.co";
+        Email emailInstitcional = new Email("usuario@uqvirtual.edu.co");
         assertNotNull(emailInstitcional);
     }
 
