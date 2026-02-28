@@ -13,11 +13,42 @@ public class Solicitud {
     private PrioridadDeSolicitud prioridad;
     private String idResponsable;
 
-    public Solicitud(CodigoSolicitud codigo, String descripcion, String idSolicitante) {
+    public Solicitud(CodigoSolicitud codigo, String descripcion, String idSolicitante, TipoDeSolicitud tipo) {
         this.codigo = codigo;
+        if (descripcion == null || descripcion.isBlank()) {
+            throw new ExcepcionDeReglaDeDominio("La descripcion no puede estar vacia");
+        }
         this.descripcion = descripcion;
         this.idSolicitante = idSolicitante;
         this.estado = EstadoDeSolicitud.REGISTRADA;
+    }
+
+    public CodigoSolicitud getCodigo() {
+        return codigo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getIdSolicitante() {
+        return idSolicitante;
+    }
+
+    public TipoDeSolicitud getTipo() {
+        return tipo;
+    }
+
+    public EstadoDeSolicitud getEstado() {
+        return estado;
+    }
+
+    public PrioridadDeSolicitud getPrioridad() {
+        return prioridad;
+    }
+
+    public String getIdResponsable() {
+        return idResponsable;
     }
 
     public void clasificarSolicitud(TipoDeSolicitud tipo, PrioridadDeSolicitud prioridad) {
@@ -35,6 +66,13 @@ public class Solicitud {
         }
         this.idResponsable = idResponsable;
         this.estado = EstadoDeSolicitud.EN_ATENCION;
+    }
+
+    public void atender() {
+        if (this.estado != EstadoDeSolicitud.EN_ATENCION) {
+            throw new ExcepcionDeReglaDeDominio("Solo se puede atender una solicitud en atencion");
+        }
+        this.estado = EstadoDeSolicitud.ATENDIDA;
     }
 
     public void cerrar() {
