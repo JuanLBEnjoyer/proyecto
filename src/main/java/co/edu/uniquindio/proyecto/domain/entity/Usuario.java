@@ -1,17 +1,18 @@
 package co.edu.uniquindio.proyecto.domain.entity;
 
-import co.edu.uniquindio.proyecto.domain.valueobject.Email;
+import co.edu.uniquindio.proyecto.domain.valueobject.*;
+
 import lombok.Getter;
 
 @Getter
 public class Usuario {
 
-    private String id;
+    private Documento documento;
     private String nombre;
     private Email email;
 
-    public Usuario(String id, String nombre, Email email) {
-        this.id = id;
+    public Usuario(Documento documento, String nombre, Email email) {
+        this.documento = documento;
         this.nombre = nombre;
         this.email = email;
     }

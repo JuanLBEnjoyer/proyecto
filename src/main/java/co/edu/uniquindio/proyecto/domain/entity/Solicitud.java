@@ -9,19 +9,19 @@ public class Solicitud {
 
     private final CodigoSolicitud codigo;
     private final String descripcion;
-    private final String idSolicitante;
+    private final Documento documentoSolicitante;
     private TipoDeSolicitud tipo;
     private EstadoDeSolicitud estado;
     private PrioridadDeSolicitud prioridad;
-    private String idResponsable;
+    private Documento documentoResponsable;
 
-    public Solicitud(CodigoSolicitud codigo, String descripcion, String idSolicitante, TipoDeSolicitud tipo) {
+    public Solicitud(CodigoSolicitud codigo, String descripcion, Documento documentoSolicitante, TipoDeSolicitud tipo) {
         this.codigo = codigo;
         if (descripcion == null || descripcion.isBlank()) {
             throw new ExcepcionDeReglaDeDominio("La descripcion no puede estar vacia");
         }
         this.descripcion = descripcion;
-        this.idSolicitante = idSolicitante;
+        this.documentoSolicitante = documentoSolicitante;
         this.estado = EstadoDeSolicitud.REGISTRADA;
     }
 
@@ -34,11 +34,11 @@ public class Solicitud {
         this.estado = EstadoDeSolicitud.CLASIFICADA;
     }
 
-    public void asignarResponsable(String idResponsable) {
+    public void asignarResponsable(Documento documentoResponsable) {
         if (this.estado != EstadoDeSolicitud.CLASIFICADA) {
             throw new ExcepcionDeReglaDeDominio("Solo se puede asignar un responsable a una solicitud clasificada");
         }
-        this.idResponsable = idResponsable;
+        this.documentoResponsable = documentoResponsable;
         this.estado = EstadoDeSolicitud.EN_ATENCION;
     }
 

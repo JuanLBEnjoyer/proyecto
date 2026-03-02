@@ -1,5 +1,5 @@
 package co.edu.uniquindio.proyecto.domain.service;
 
-public class Servicio {
+public class AsignarResponsableService {
 
 }
