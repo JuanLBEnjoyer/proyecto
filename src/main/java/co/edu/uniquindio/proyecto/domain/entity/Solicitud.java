@@ -22,14 +22,17 @@ public class Solicitud {
         }
         this.descripcion = descripcion;
         this.documentoSolicitante = documentoSolicitante;
+        if (tipo == null) {
+            throw new ExcepcionDeReglaDeDominio("El tipo de la solicitud no puede estar vacio");
+        }
+        this.tipo = tipo;
         this.estado = EstadoDeSolicitud.REGISTRADA;
     }
 
-    public void clasificarSolicitud(TipoDeSolicitud tipo, PrioridadDeSolicitud prioridad) {
+    public void clasificarSolicitud(PrioridadDeSolicitud prioridad) {
         if (this.estado != EstadoDeSolicitud.REGISTRADA) {
             throw new ExcepcionDeReglaDeDominio("Solo se puede clasificar una solicitud registrada");
         }
-        this.tipo = tipo;
         this.prioridad = prioridad;
         this.estado = EstadoDeSolicitud.CLASIFICADA;
     }
