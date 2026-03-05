@@ -34,7 +34,7 @@ public class Solicitud {
         this.historial.add(new RegistroHistorial("Solicitud registrada", LocalDateTime.now(), this.estado));
     }
 
-    public void clasificarSolicitud(PrioridadDeSolicitud prioridad) {
+    public void clasificar(PrioridadDeSolicitud prioridad) {
         if (this.estado != EstadoDeSolicitud.REGISTRADA) {
             throw new ExcepcionDeReglaDeDominio("Solo se puede clasificar una solicitud registrada");
         }

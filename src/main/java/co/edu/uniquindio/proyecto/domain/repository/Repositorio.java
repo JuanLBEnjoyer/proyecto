@@ -1,5 +1,5 @@
 package co.edu.uniquindio.proyecto.domain.repository;
 
-public class Repositorio {
-
+public interface Repositorio {
+    // Esto es para que detecte la carpeta como cambio
 }
