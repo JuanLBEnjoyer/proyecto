@@ -49,6 +49,7 @@ public class Solicitud {
         }
         this.documentoResponsable = documentoResponsable;
         this.estado = EstadoDeSolicitud.EN_ATENCION;
+        this.historial.add(new RegistroHistorial("Solicitud asignada a responsable", LocalDateTime.now(), this.estado));
     }
 
     public void atender() {
